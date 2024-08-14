@@ -1,7 +1,8 @@
-import { copy, linkIcon, loader, tick } from "@/assets";
-import { articleSummaryQuery, articleUrlState } from "@/services/recoill";
 import React, { useState, useEffect } from "react";
 import { useRecoilState, useRecoilValueLoadable } from "recoil";
+import { copy, linkIcon, loader, tick } from "../assets";
+import { articleUrlState , articleSummaryQuery } from "../services/recoil";
+
 
 const Para = () => {
   const [article, setArticle] = useState({
@@ -56,10 +57,10 @@ const Para = () => {
   };
 
   return (
-    <section className='mt-16 w-full max-w-2xl'>
+    <section className='mt-16 w-full max-w-xl'>
       <div className='flex flex-col w-full gap-2'>
         <form className='relative flex justify-center items-center' onSubmit={handleSubmit}>
-          <img src={linkIcon} alt='link-icon' className='absolute text-2xl left-0 my-2 ml-3 w-5' />
+          <img src={linkIcon} alt='link-icon' className='absolute left-0 my-2 ml-3 w-5' />
 
           <input
             type='url'
@@ -68,7 +69,7 @@ const Para = () => {
             onChange={(e) => setArticle({ ...article, url: e.target.value })}
             onKeyDown={handleKeyDown}
             required
-            className='url_input peer tracking-normal' 
+            className='url_input peer' 
           />
           <button type='submit' className='submit_btn peer-focus:border-gray-700 peer-focus:text-gray-700 '>
             <p className="text-2xl">↵</p>
@@ -85,7 +86,7 @@ const Para = () => {
                   className='w-[40%] h-[40%] object-contain'
                 />
               </div>
-              <p className='flex-1 font-sans text-blue-700 tracking-normal font-medium text-sm truncate'>
+              <p className='flex-1 font-satoshi text-blue-700 font-medium text-sm truncate'>
                 {item.url}
               </p>
             </div>
@@ -100,18 +101,18 @@ const Para = () => {
           <p className='font-inter font-bold text-black text-center'>
             Well, that wasn't supposed to happen...
             <br />
-            <span className='font-sans tracking-normal font-normal text-gray-700'>
+            <span className='font-satoshi font-normal text-gray-700'>
               {articleSummaryLoadable.contents?.message}
             </span>
           </p>
         ) : (
           article.summary && (
             <div className='flex flex-col gap-3'>
-              <h2 className='font-sans font-bold text-gray-600 text-xl tracking-normal'>
+              <h2 className='font-satoshi font-bold text-gray-600 text-xl'>
                 Article <span className='blue_gradient'>Summary</span>
               </h2>
               <div className='summary_box'>
-                <p className='font-inter font-medium text-sm text-gray-700 tracking-normal'>
+                <p className='font-inter font-medium text-sm text-gray-700'>
                   {article.summary}
                 </p>
               </div>

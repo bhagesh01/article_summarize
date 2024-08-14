@@ -1,19 +1,23 @@
 import './App.css'
-import { cn } from "@/lib/utils";
-import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
-import Hero from './components/ui/Hero';
-import Para from './components/ui/Para';
-import Navbar from './components/ui/Navbar';
-import HeroWrapper from './components/ui/HeroWrapper';
+import { RecoilRoot } from "recoil";
+import Hero from './components/Hero';
+import Para from './components/Para';
 
 function App() {
 
   return (
-   
-     <main className='w-full h-full overflow-x-hidden'>
-      <Navbar></Navbar>
-      <HeroWrapper></HeroWrapper>
-  </main>
+    <main>
+      <div className='main'>
+        <div className='gradient' />
+      </div>
+
+      <RecoilRoot>
+      <div className='app'>
+        <Hero />
+        <Para />
+      </div>
+      </RecoilRoot>
+    </main>
   )
 }
 
